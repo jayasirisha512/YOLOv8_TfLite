@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Layout file defining the UI for the main activity. It contains:
+     - PreviewView to display the camera feed
+     - OverlayView to draw bounding boxes
+     - TextView to show inference time
+     - ToggleButton to switch between GPU and CPU -->
+
 <androidx.constraintlayout.widget.ConstraintLayout android:background="@color/black"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,7 +12,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <!-- Camera preview area -->
     <androidx.camera.view.PreviewView
         android:id="@+id/view_finder"
         android:layout_width="0dp"
@@ -19,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5"
         app:scaleType="fillStart" />
-
+    <!-- Custom view to draw bounding boxes -->
     <com.surendramaran.yolov8tflite.OverlayView
         android:id="@+id/overlay"
         android:layout_width="0dp"
@@ -32,7 +38,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5" />
-
+    <!-- Displays the model's inference time -->
     <TextView
         tools:text="100ms"
         android:textColor="@color/white"
@@ -43,6 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <!-- Toggle to switch GPU/CPU usage -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
